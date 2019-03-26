@@ -5,7 +5,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Element/>
+        <Clock />
       </div>
     );
   }
@@ -27,6 +27,22 @@ class Element extends Component{
         hello, {formatUser(user)}!
       </h1>
     )
+  }
+}
+
+class Clock extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {date: new Date()};
+  }
+
+  render () {
+    return (
+      <div>
+        <Element/>
+        <h2>It is {this.props.date.toLocalTimeString()}.</h2>
+      </div>
+    );
   }
 }
 
