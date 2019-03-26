@@ -1,27 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+        <Element/>
       </div>
     );
+  }
+}
+
+function formatUser(user) {
+  return user.firstName + ' ' + user.lastName
+}
+
+const user = {
+  firstName: 'Jon',
+  lastName: 'Doe'
+}
+
+class Element extends Component{
+  render() {
+    return (
+      <h1>
+        hello, {formatUser(user)}!
+      </h1>
+    )
   }
 }
 
