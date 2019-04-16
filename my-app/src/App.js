@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
+import LoginControl from './login';
 import './App.css';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+        <LoginControl />
         <Clock name='clock1' />
-        <Clock name='clock2' />
-        <Clock name='clock3' />
-        <Clock name='clock4'/>
       </div>
     );
   }
@@ -25,9 +24,9 @@ const user =
   }
 
 class User extends Component{
-  constructor(props){
-    super(props)
-  }
+  // constructor(props){
+  //   super(props)
+  // }
 
   handleClick = () => {
     console.log('you are clicking user' + this.props.name)
@@ -78,6 +77,9 @@ class Clock extends Component {
       <div>
         <User name={this.state.name}/>
         <h2 onClick={this.handleClick}>It is {this.state.date.toLocaleTimeString()}.</h2>
+        {this.state.date.toLocaleTimeString().substr(this.state.date.toLocaleTimeString().length - 1,this.state.date.toLocaleTimeString().length)%5 == 0 &&
+          <h2>it is every 5s</h2>
+        }
       </div>
     );
   }
