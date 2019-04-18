@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import LoginControl from './login';
+import NumberList from './list';
 import './App.css';
 
+const numbers = [1,2,3,4,5]
 class App extends Component {
   render() {
     return (
       <div className="App">
         <LoginControl />
         <Clock name='clock1' />
+        <NumberList numbers={numbers} />
       </div>
     );
   }
@@ -29,7 +32,7 @@ class User extends Component{
   // }
 
   handleClick = () => {
-    console.log('you are clicking user' + this.props.name)
+    console.log('you are clicking user--->' + this.props.name)
   }
   render() {
     return (
@@ -77,7 +80,7 @@ class Clock extends Component {
       <div>
         <User name={this.state.name}/>
         <h2 onClick={this.handleClick}>It is {this.state.date.toLocaleTimeString()}.</h2>
-        {this.state.date.toLocaleTimeString().substr(this.state.date.toLocaleTimeString().length - 1,this.state.date.toLocaleTimeString().length)%5 == 0 &&
+        {this.state.date.toLocaleTimeString().substr(this.state.date.toLocaleTimeString().length - 1,this.state.date.toLocaleTimeString().length)%5 === 0 &&
           <h2>it is every 5s</h2>
         }
       </div>
