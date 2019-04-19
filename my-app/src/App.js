@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import LoginControl from './login';
 import NumberList from './list';
+import NameForm from './nameForm';
 import './App.css';
 
-const numbers = [1,2,3,4,5]
+const numbers = [1]
 class App extends Component {
   render() {
     return (
@@ -11,6 +12,7 @@ class App extends Component {
         <LoginControl />
         <Clock name='clock1' />
         <NumberList numbers={numbers} />
+        <NameForm />
       </div>
     );
   }
